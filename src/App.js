@@ -1,17 +1,25 @@
+import React, {useState} from 'react';
 import "./styles.css";
-import Botones from "./components/button.jsx";
+import AddTask from "./components/button.jsx";
 import Tareas from "./components/tareas.jsx";
 import Filter from "./components/filtro.jsx";
+import tareasjson from "./components/tareas.json";
 
 export default function App() {
+  const [tasks, setTasks] = useState(tareasjson);
+
+  const onAddTask = (newTask) => {
+    setTasks([...tasks, newTask]);
+  }
+
   return (
     <div>
       <h1>Tareas Check</h1>
       <div>
         <Filter />
         <hr />
-        <Botones />
-        <Tareas />
+        <AddTask onAddTask={onAddTask} />
+        <Tareas tasks={tasks} />
         <div className="conteiner">
           {/*<Todas />
             <Activos />
