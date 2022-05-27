@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import "./styles.css";
-import AddTask from "./components/AddTask.jsx";
+import AddTask from "./components/button.jsx";
 import Tareas from "./components/tareas.jsx";
 import Filter from "./components/filtro.jsx";
 import tareasjson from "./components/tareas.json";
