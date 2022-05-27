@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import "./tareas.jsx";
+import { v4 as uuidv4 } from 'uuid';
 
-function Botones() {
+const AddTask = ({onAddTask}) => {
   const [texto, setText] = useState("");
 
   const onChangeInput = (e) => {
@@ -11,6 +11,11 @@ function Botones() {
   const onSubmit = (e) => {
     e.preventDefault();
     console.log(texto);
+    onAddTask({
+      id: uuidv4(),
+      descripcion: texto,
+      estado: true
+    });
   };
   return (
     <form onSubmit={onSubmit}>
@@ -25,4 +30,4 @@ function Botones() {
     </form>
   );
 }
-export default Botones;
+export default AddTask;
